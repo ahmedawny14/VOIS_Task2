@@ -32,10 +32,20 @@ public class TestBase {
   public static void beforeMethod()
   {
 
+    if (prop.getProperty("browser").equalsIgnoreCase("Edge")) {
     WebDriverManager.edgedriver().setup();
     EdgeOptions edgeOptions = new EdgeOptions();
     edgeOptions.addArguments("--disable-notifications");
     driver= new EdgeDriver();
+    }
+    else if (prop.getProperty("browser").equalsIgnoreCase("Firefox"))
+    { WebDriverManager.firefoxdriver().setup();
+
+      driver= new FirefoxDriver();}
+    else if (prop.getProperty("browser").equalsIgnoreCase("Chrome"))
+    { WebDriverManager. chromedriver().setup();
+
+      driver= new ChromeDriver();}
     driver.get((prop.getProperty("url")));
     driver.manage().window().setSize(new Dimension(1024, 768));
 
