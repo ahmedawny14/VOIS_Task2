@@ -48,7 +48,7 @@ public class TestBase {
 @AfterTest
   public static void close()
 {
-  //driver.quit();
+  driver.quit();
 }
 
 
